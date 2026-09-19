@@ -1,12 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-import { apiUrl } from "../lib/api";
+import { API_BASE_URL,  } from "../lib/api";
 import { Link } from "react-router-dom";
 
 import DesignCard from "../components/DesignCard";
 
-const API_URL = apiUrl();
+
 
 const categories = [
   "All",
@@ -27,7 +27,7 @@ export default function DesignsPage() {
   useEffect(() => {
     async function fetchDesigns() {
       try {
-        const response = await fetch(`${API_URL}/designs`);
+        const response = await fetch(`${API_BASE_URL}/designs`);
         const data = await response.json();
 
         if (!response.ok) {
