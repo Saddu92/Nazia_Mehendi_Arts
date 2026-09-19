@@ -10,9 +10,8 @@ import {
 
 import SectionHeading from "./SectionHeading";
 import { reviews as staticReviews } from "../data/content";
-import { apiUrl } from "../lib/api";
+import { API_BASE_URL } from "../lib/api";
 
-const API_URL = apiUrl("reviews");
 
 export default function Reviews() {
   const [reviews, setReviews] = useState(staticReviews);
@@ -33,7 +32,7 @@ export default function Reviews() {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const response = await fetch(`${API_URL}/approved`);
+        const response = await fetch(`${API_BASE_URL}/approved`);
         const data = await response.json();
 
         if (!response.ok) return;
@@ -84,7 +83,7 @@ export default function Reviews() {
     setLoading(true);
 
     try {
-      const response = await fetch(API_URL, {
+      const response = await fetch(API_BASE_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
