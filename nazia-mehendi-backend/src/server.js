@@ -12,10 +12,11 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-const allowedOrigins = process.env.CORS_ORIGIN
-  ?.split(",")
-  .map((origin) => origin.trim())
-  .filter(Boolean);
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://nazia-mehendi-arts-y4nq.vercel.app",
+  "https://nazia-mehendi-arts-y4nq-johb1zlcc.vercel.app",
+];
 
 // Middleware
 app.use(
