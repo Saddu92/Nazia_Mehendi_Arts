@@ -13,8 +13,6 @@ import {
 import { useNavigate } from "react-router-dom";
 import { apiUrl } from "../lib/api";
 
-const API_URL = apiUrl();
-
 export default function AdminDashboard() {
   const navigate = useNavigate();
 
@@ -108,7 +106,7 @@ export default function AdminDashboard() {
     try {
       setDesignsLoading(true);
 
-      const response = await fetch(`${API_URL}/designs`);
+      const response = await fetch(apiUrl(`/designs`));
       const data = await response.json();
 
       if (!response.ok) {
@@ -150,7 +148,7 @@ export default function AdminDashboard() {
       formData.append("isFeatured", form.isFeatured);
       formData.append("image", image);
 
-      const response = await fetch(`${API_URL}/designs`, {
+      const response = await fetch(apiUrl(`/designs`), {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -202,7 +200,7 @@ export default function AdminDashboard() {
     setMessage("");
 
     try {
-      const response = await fetch(`${API_URL}/designs/${id}`, {
+      const response = await fetch(apiUrl(`/designs/${id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -242,7 +240,7 @@ export default function AdminDashboard() {
         return;
       }
 
-      const response = await fetch(`${API_URL}/reviews/admin`, {
+      const response = await fetch(apiUrl(`/reviews/admin`), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -275,7 +273,7 @@ export default function AdminDashboard() {
 
     try {
       const response = await fetch(
-        `${API_URL}/reviews/${id}/approve`,
+        apiUrl(`/reviews/${id}/approve`),
         {
           method: "PATCH",
           headers: {
@@ -324,7 +322,7 @@ export default function AdminDashboard() {
     setMessage("");
 
     try {
-      const response = await fetch(`${API_URL}/reviews/${id}`, {
+      const response = await fetch(apiUrl(`/reviews/${id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -364,7 +362,7 @@ export default function AdminDashboard() {
         return;
       }
 
-      const response = await fetch(`${API_URL}/bookings/admin`, {
+      const response = await fetch(apiUrl(`/bookings/admin`), {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -397,7 +395,7 @@ export default function AdminDashboard() {
 
     try {
       const response = await fetch(
-        `${API_URL}/bookings/${id}/status`,
+        apiUrl(`/bookings/${id}/status`),
         {
           method: "PATCH",
           headers: {
@@ -448,7 +446,7 @@ export default function AdminDashboard() {
     setMessage("");
 
     try {
-      const response = await fetch(`${API_URL}/bookings/${id}`, {
+      const response = await fetch(apiUrl(`/bookings/${id}`), {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
