@@ -11,7 +11,7 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT;
 const allowedOrigins = [
   "http://localhost:5173",
   "https://nazia-mehendi-arts-y4nq.vercel.app",
