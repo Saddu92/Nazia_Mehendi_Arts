@@ -1,4 +1,6 @@
-const API_URL = "http://localhost:5000/api/bookings";
+import { apiUrl } from "../lib/api";
+
+const API_URL = apiUrl("bookings");
 
 export async function submitBooking(bookingData) {
   const response = await fetch(API_URL, {

@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
+import { apiUrl } from "../lib/api";
 import { Link } from "react-router-dom";
 
 import DesignCard from "../components/DesignCard";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = apiUrl();
 
 const categories = [
   "All",

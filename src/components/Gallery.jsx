@@ -6,8 +6,9 @@ import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { scrollToSection } from "../lib/scroll";
 import { showcaseDesigns } from "../data/showcaseDesigns";
+import { apiUrl } from "../lib/api";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = apiUrl();
 
 const categories = [
   "All",

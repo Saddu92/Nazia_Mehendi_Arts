@@ -10,8 +10,9 @@ import {
 
 import SectionHeading from "./SectionHeading";
 import { reviews as staticReviews } from "../data/content";
+import { apiUrl } from "../lib/api";
 
-const API_URL = "http://localhost:5000/api/reviews";
+const API_URL = apiUrl("reviews");
 
 export default function Reviews() {
   const [reviews, setReviews] = useState(staticReviews);
@@ -132,13 +133,13 @@ export default function Reviews() {
     >
       <div className="container-shell">
         {/* Heading and Controls */}
-        <div className="mb-8 flex items-end justify-between gap-4">
+        <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="Client stories"
             title="Words That Inspire"
           />
 
-          <div className="flex flex-wrap items-center justify-end gap-2">
+          <div className="flex flex-wrap items-center gap-2 sm:justify-end">
             {/* Write Review Button */}
             <button
               type="button"

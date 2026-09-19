@@ -11,8 +11,9 @@ import {
   CalendarDays,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../lib/api";
 
-const API_URL = "http://localhost:5000/api";
+const API_URL = apiUrl();
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
@@ -498,11 +499,11 @@ export default function AdminDashboard() {
   // ==========================
 
   return (
-    <main className="min-h-screen bg-cream px-6 py-10">
+    <main className="min-h-screen bg-cream px-4 py-6 sm:px-6 sm:py-10">
       <div className="mx-auto max-w-6xl">
 
         {/* HEADER */}
-        <div className="mb-10 flex items-center justify-between">
+        <div className="mb-8 flex items-start justify-between gap-4 sm:mb-10 sm:items-center">
           <div>
             <p className="eyebrow">Nazia Mehendi</p>
 
@@ -534,7 +535,7 @@ export default function AdminDashboard() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-6 rounded-2xl bg-white p-6 shadow-sm"
+          className="space-y-6 rounded-2xl bg-white p-4 shadow-sm sm:p-6"
         >
           <div className="flex items-center gap-2">
             <ImagePlus size={20} />
@@ -643,7 +644,7 @@ export default function AdminDashboard() {
             MANAGE DESIGNS
         ========================== */}
 
-        <section className="mt-10 rounded-2xl bg-white p-6 shadow-sm">
+        <section className="mt-8 rounded-2xl bg-white p-4 shadow-sm sm:mt-10 sm:p-6">
           <div className="mb-6 flex items-center justify-between">
             <h2 className="text-xl font-medium">
               Manage Designs
@@ -717,7 +718,7 @@ export default function AdminDashboard() {
             MANAGE REVIEWS
         ========================== */}
 
-        <section className="mt-10 rounded-2xl bg-white p-6 shadow-sm">
+        <section className="mt-8 rounded-2xl bg-white p-4 shadow-sm sm:mt-10 sm:p-6">
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MessageSquare size={20} />
@@ -874,7 +875,7 @@ export default function AdminDashboard() {
             MANAGE BOOKINGS
         ========================== */}
 
-        <section className="mt-10 rounded-2xl bg-white p-6 shadow-sm">
+        <section className="mt-8 rounded-2xl bg-white p-4 shadow-sm sm:mt-10 sm:p-6">
           <div className="mb-6 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <CalendarDays size={20} />

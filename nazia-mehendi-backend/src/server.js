@@ -11,13 +11,15 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
+const allowedOrigins = process.env.CORS_ORIGIN
+  ?.split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
 
 // Middleware
 app.use(
-  cors({    
-    origin: "http://localhost:5173",
-  })
+  cors({ origin: allowedOrigins?.length ? allowedOrigins : true })
 );
 
 app.use(express.json());
@@ -42,7 +44,7 @@ async function startServer() {
   await connectDB();
 
   app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server listening on port ${PORT}`);
   });
 }
 

@@ -5,8 +5,9 @@ import {
   UserRound,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { apiUrl } from "../lib/api";
 
-const API_URL = "http://localhost:5000/api/bookings";
+const API_URL = apiUrl("bookings");
 
 
 export default function Booking({ selectedDesign = "" }) {
@@ -128,7 +129,7 @@ useEffect(() => {
             Let's create something beautiful
           </p>
 
-          <h2 className="display-title text-5xl">
+          <h2 className="display-title text-4xl sm:text-5xl">
             Book Your <em>Date</em>
           </h2>
 
@@ -246,7 +247,7 @@ useEffect(() => {
             <button
               type="submit"
               disabled={loading}
-              className="primary-button disabled:cursor-not-allowed disabled:opacity-60"
+              className="primary-button w-full sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
             >
               <MessageCircle size={15} />
 

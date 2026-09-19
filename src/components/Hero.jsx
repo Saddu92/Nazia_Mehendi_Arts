@@ -52,7 +52,7 @@ function AnimatedCounter({ target, duration = 2000 }) {
   return (
     <section
       id="home"
-      className="container-shell relative overflow-hidden py-12 lg:min-h-[650px]"
+      className="container-shell relative overflow-hidden py-10 sm:py-12 lg:min-h-[650px]"
     >
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.08fr]">
         {/* Left Content */}
@@ -64,7 +64,7 @@ function AnimatedCounter({ target, duration = 2000 }) {
         >
           <p className="eyebrow">Tradition meets creativity</p>
 
-          <h1 className="display-title text-6xl sm:text-7xl">
+          <h1 className="display-title text-5xl sm:text-7xl">
             Art on
             <br />
             <em>Your Hands</em>
@@ -74,7 +74,7 @@ function AnimatedCounter({ target, duration = 2000 }) {
             Custom mehendi designs for every story, every celebration.
           </p>
 
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
             <button
               onClick={() => scrollToSection("designs")}
               className="primary-button"
@@ -85,7 +85,7 @@ function AnimatedCounter({ target, duration = 2000 }) {
 
             <Link
               to="/designs"
-              className="group flex items-center gap-2 rounded-full border border-[#6a4432]/30 px-4 py-3 text-xs transition hover:bg-[#6a4432] hover:text-white"
+              className="group flex min-h-11 items-center justify-center gap-2 rounded-full border border-[#6a4432]/30 px-4 py-3 text-xs transition hover:bg-[#6a4432] hover:text-white"
             >
               View More of My Designs
               <MoveRight
@@ -104,7 +104,7 @@ function AnimatedCounter({ target, duration = 2000 }) {
           </div>
 
           {/* Stats */}
-          <div className="mt-12 flex flex-wrap gap-7 sm:gap-10">
+          <div className="mt-10 grid grid-cols-3 gap-3 sm:mt-12 sm:flex sm:flex-wrap sm:gap-10">
             <div>
              <p className="font-display text-3xl">
   <AnimatedCounter target={50} duration={2000} />
@@ -136,13 +136,13 @@ function AnimatedCounter({ target, duration = 2000 }) {
           className="relative flex justify-center"
         >
           <img
-            className="h-[420px] w-full max-w-xl rounded-[220px_220px_0_0] object-cover saturate-[.7] sm:h-[520px]"
+            className="h-[360px] w-full max-w-xl rounded-[180px_180px_0_0] object-cover saturate-[.7] sm:h-[520px] sm:rounded-[220px_220px_0_0]"
             // src="https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1100&q=90"
             src="/showcase/hero-image.png"
             alt="Sample intricate mehendi design on a hand"
           />
 
-          <p className="absolute right-3 top-1 rotate-[-10deg] font-display text-3xl italic leading-none text-amber-1000">
+          <p className="absolute right-3 top-3 rotate-[-10deg] font-display text-2xl italic leading-none text-[#8a684d] sm:top-1 sm:text-3xl">
             More
             <br />
             than

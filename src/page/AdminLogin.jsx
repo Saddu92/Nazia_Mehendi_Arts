@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Lock, Mail } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../lib/api";
 
 export default function AdminLogin() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function AdminLogin() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/login",
+        apiUrl("auth/login"),
         {
           method: "POST",
           headers: {
@@ -56,7 +57,7 @@ export default function AdminLogin() {
   }
 
   return (
-    <section className="flex min-h-screen items-center justify-center bg-cream px-6">
+    <section className="flex min-h-screen items-center justify-center bg-cream px-4 py-8 sm:px-6">
       <div className="w-full max-w-md">
         <p className="eyebrow text-center">Admin Access</p>
 
@@ -66,7 +67,7 @@ export default function AdminLogin() {
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-5 rounded-2xl bg-white p-8 shadow-sm"
+          className="space-y-5 rounded-2xl bg-white p-5 shadow-sm sm:p-8"
         >
           {error && (
             <p className="rounded-lg bg-red-50 p-3 text-sm text-red-600">

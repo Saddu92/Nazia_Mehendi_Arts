@@ -8,7 +8,7 @@ export default function Footer() {
   const navigate = useNavigate();
   return (
     <footer className="bg-[#e9e1d4]">
-      <div className="container-shell flex flex-wrap items-center justify-between gap-6 py-8">
+      <div className="container-shell flex flex-col items-center gap-5 py-8 text-center sm:flex-row sm:flex-wrap sm:justify-between sm:text-left">
         <button onClick={() => scrollToSection("home")} className="text-left">
           <span className="block font-display text-3xl">Nazia</span>
           <span className="text-[8px] tracking-[.25em]">
@@ -16,7 +16,7 @@ export default function Footer() {
           </span>
         </button>
 
-        <div className="flex flex-wrap gap-4">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
           {navItems.map((item) => (
             <button
               key={item.id}
@@ -52,7 +52,7 @@ export default function Footer() {
           </a>
         </div>
 
-        <p className="text-right text-[10px] leading-5">
+        <p className="text-center text-[10px] leading-5 sm:text-right">
           Art · People · Celebrations
           <br />
           <span className="text-[#877d70]">
@@ -61,7 +61,7 @@ export default function Footer() {
         </p>
       </div>
 
-      <div className="grid gap-10 bg-[#31392b] px-6 py-14 text-center text-[#e9e1d4] md:grid-cols-3 md:text-left">
+      <div className="grid gap-10 bg-[#31392b] px-4 py-12 text-center text-[#e9e1d4] sm:px-6 md:grid-cols-3 md:text-left">
         <div>
           <span className="font-display text-6xl">“</span>
 
