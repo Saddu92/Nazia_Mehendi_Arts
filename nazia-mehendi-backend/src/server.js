@@ -11,16 +11,35 @@ import bookingRoutes from "./routes/bookingRoutes.js";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT;
-const allowedOrigins = [
+const PORT = process.env.PORT || 5000;
+const configuredOrigins = (process.env.CORS_ORIGIN || "")
+  .split(",")
+  .map((origin) => origin.trim().replace(/\/$/, ""))
+  .filter(Boolean);
+const allowedOrigins = new Set([
+  ...configuredOrigins,
   "http://localhost:5173",
   "https://nazia-mehendi-arts-y4nq.vercel.app",
   "https://nazia-mehendi-arts-y4nq-johb1zlcc.vercel.app",
-];
+]);
 
 // Middleware
 app.use(
-  cors({ origin: allowedOrigins?.length ? allowedOrigins : true })
+  cors({
+    origin: (origin, callback) => {
+      const isLocalOrigin = /^http:\/\/localhost:\d+$/.test(origin || "");
+      const isVercelPreview = /^https:\/\/nazia-mehendi-arts(?:-[\w-]+)?\.vercel\.app$/.test(
+        origin || ""
+      );
+
+      if (!origin || allowedOrigins.has(origin) || isLocalOrigin || isVercelPreview) {
+        callback(null, true);
+        return;
+      }
+
+      callback(new Error("Origin is not allowed by CORS"));
+    },
+  })
 );
 
 app.use(express.json());

@@ -6,9 +6,8 @@ import { ArrowUpRight } from "lucide-react";
 import SectionHeading from "./SectionHeading";
 import { scrollToSection } from "../lib/scroll";
 import { showcaseDesigns } from "../data/showcaseDesigns";
-import { apiUrl } from "../lib/api";
+import { API_BASE_URL, apiUrl } from "../lib/api";
 
-const API_URL = apiUrl();
 
 const categories = [
   "All",
@@ -42,7 +41,7 @@ export default function Gallery({ onSelectDesign }) {
   useEffect(() => {
     async function fetchDesigns() {
       try {
-        const response = await fetch(`${API_URL}/designs`);
+        const response = await fetch(`${API_BASE_URL}/designs`);
         const data = await response.json();
 
         if (!response.ok) {
